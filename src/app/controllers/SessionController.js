@@ -32,7 +32,9 @@ class SessionController {
     // check password user
 
     if (!(await user.checkPassword(password))) {
-      return res.status(401).json({ error: 'Senha incorreta!' });
+      return res
+        .status(401)
+        .json({ error: 'A senha informada está incorreta!' });
     }
 
     const { id, name } = user;
