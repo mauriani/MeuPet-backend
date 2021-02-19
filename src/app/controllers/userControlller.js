@@ -59,13 +59,38 @@ class UserController {
 
     // buscando os campos do meu frontEnd
 
-    // const { email, oldPassword } = req.body;
+    const { email, oldPassword } = req.body;
 
     // buscando usuário informado no banco
 
-    // const user = await User.findByPk(req.userId);
+    const user = await User.findByPk(req.userId);
 
-    return res.json();
+    // se o usuário quiser alterar o email cai aqui
+    if (email && email !== user.email) {
+      const userExists = await User.findOne({
+        where: { email },
+      });
+
+      if (userExists) {
+        return res
+          .status(400)
+          .json({ error: 'Esse e-mail já existe em nosso sistema' });
+      }
+    }
+
+    // só entra nesse if se o usuário informar a senha antiga
+
+    if (oldPassword && !(await user.checkPassword(oldPassword))) {
+      return res.status(401).json({ error: 'Password does nor match' });
+    }
+
+    const { id, name } = await user.update(req.body);
+
+    return res.json({
+      id,
+      name,
+      email,
+    });
   }
 }
 
