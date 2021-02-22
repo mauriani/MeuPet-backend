@@ -22,7 +22,7 @@ class ProductsDogs extends Model {
   static associate(models) {
     this.belongsTo(models.File, {
       foreignKey: 'product_file_id',
-      as: 'product_file',
+      as: 'file_product',
     });
   }
 }
