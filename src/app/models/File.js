@@ -1,3 +1,5 @@
+// dados que o usuário enviar ao escolher uma imagem
+
 import Sequelize, { Model } from 'sequelize';
 
 class File extends Model {
