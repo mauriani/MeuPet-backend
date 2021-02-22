@@ -15,6 +15,7 @@ routes.post('/sessions', SessionController.store);
 // Essas rotas só serão acessíveis ao usário se o mesmo estiver logado
 
 routes.use(authMiddleware);
-routes.post('/users', UserController.update);
+
+routes.put('/users', UserController.update);
 
 export default routes;

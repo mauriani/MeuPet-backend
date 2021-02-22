@@ -74,14 +74,14 @@ class UserController {
       if (userExists) {
         return res
           .status(400)
-          .json({ error: 'Esse e-mail já existe em nosso sistema' });
+          .json({ error: 'Esse e-mail já está cadastrado em nosso sistema' });
       }
     }
 
     // só entra nesse if se o usuário informar a senha antiga
 
     if (oldPassword && !(await user.checkPassword(oldPassword))) {
-      return res.status(401).json({ error: 'Password does nor match' });
+      return res.status(401).json({ error: 'Senha incorreta' });
     }
 
     const { id, name } = await user.update(req.body);
