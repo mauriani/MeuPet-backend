@@ -6,6 +6,7 @@ class ProductsDogsController {
   async store(req, res) {
     const schema = Yup.object().shape({
       name_product: Yup.string().required(),
+      cod_product: Yup.string().required(),
       description_product: Yup.string().required(),
       price_product: Yup.string().required(),
       category_product: Yup.string().required(),
@@ -23,6 +24,7 @@ class ProductsDogsController {
     const {
       id,
       name_product,
+      cod_product,
       description_product,
       price_product,
       category_product,
@@ -34,6 +36,7 @@ class ProductsDogsController {
     return res.json({
       id,
       name_product,
+      cod_product,
       description_product,
       price_product,
       category_product,
@@ -47,6 +50,7 @@ class ProductsDogsController {
     const productsDogs = await ProductsDogs.findAll({
       attributes: [
         'id',
+        'codigo_product',
         'name_product',
         'description_product',
         'price_product',
@@ -69,6 +73,7 @@ class ProductsDogsController {
   async update(req, res) {
     const schema = Yup.object().shape({
       name_product: Yup.string().required(),
+      codigo_product: Yup.string().required(),
       description_product: Yup.string().required(),
       price_product: Yup.string().required(),
       category_product: Yup.string().required(),
@@ -83,6 +88,7 @@ class ProductsDogsController {
 
     const {
       name_product,
+      codigo_product,
       description_product,
       price_product,
       category_product,
@@ -103,6 +109,7 @@ class ProductsDogsController {
     await ProductsDogs.update(
       {
         name_product,
+        codigo_product,
         description_product,
         price_product,
         category_product,
@@ -117,6 +124,7 @@ class ProductsDogsController {
 
     return res.json({
       name_product,
+      codigo_product,
       description_product,
       price_product,
       category_product,
