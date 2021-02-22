@@ -26,6 +26,7 @@ routes.put('/users', UserController.update);
 
 routes.post('/products_dogs', ProductsDogsController.store);
 routes.get('/products_dogs', ProductsDogsController.index);
+routes.put('/products_dogs/:id', ProductsDogsController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
