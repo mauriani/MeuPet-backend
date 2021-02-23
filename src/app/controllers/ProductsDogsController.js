@@ -48,6 +48,7 @@ class ProductsDogsController {
     const productsDogs = await ProductsDogs.findAll({
       attributes: [
         'id',
+        'cod_product',
         'name_product',
         'description_product',
         'price_product',
@@ -69,6 +70,7 @@ class ProductsDogsController {
 
   async update(req, res) {
     const schema = Yup.object().shape({
+      cod_product: Yup.string().required(),
       name_product: Yup.string().required(),
       description_product: Yup.string().required(),
       price_product: Yup.string().required(),
@@ -84,6 +86,7 @@ class ProductsDogsController {
 
     const {
       name_product,
+      cod_product,
       description_product,
       price_product,
       category_product,
@@ -104,6 +107,7 @@ class ProductsDogsController {
     await ProductsDogs.update(
       {
         name_product,
+        cod_product,
         description_product,
         price_product,
         category_product,
@@ -118,6 +122,7 @@ class ProductsDogsController {
 
     return res.json({
       name_product,
+      cod_product,
       description_product,
       price_product,
       category_product,

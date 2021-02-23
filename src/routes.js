@@ -30,6 +30,8 @@ routes.get('/products_dogs', ProductsDogsController.index);
 routes.put('/products_dogs/:id', ProductsDogsController.update);
 
 routes.post('/products_cats', ProductsCatsController.store);
+routes.get('/products_cats', ProductsCatsController.index);
+routes.put('/products_cats/:id', ProductsCatsController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
 
