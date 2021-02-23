@@ -1,0 +1,52 @@
+module.exports = {
+  up: async (queryInterface, Sequelize) => {
+    await queryInterface.createTable('products_cats', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+      },
+      cod_product: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      name_product: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      description_product: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      price_product: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      category_product: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      amount_product: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      size_product: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+    });
+  },
+
+  down: async (queryInterface) => {
+    await queryInterface.dropTable('products_cats');
+  },
+};
