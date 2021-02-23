@@ -12,6 +12,7 @@ class ProductsDogsController {
       category_product: Yup.string().required(),
       amount_product: Yup.string().required(),
       size_product: Yup.string(),
+      product_file_id: Yup.string().required(),
     });
 
     if (!(await schema.isValid(req.body))) {

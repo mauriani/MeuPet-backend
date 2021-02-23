@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class ProductsDogs extends Model {
+class ProductsCats extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -19,6 +19,13 @@ class ProductsDogs extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.belongsTo(models.File, {
+      foreignKey: 'product_file_id',
+      as: 'product_image',
+    });
+  }
 }
 
-export default ProductsDogs;
+export default ProductsCats;
