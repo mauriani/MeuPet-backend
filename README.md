@@ -53,6 +53,12 @@ O projeto meuPet foi desenvolvido com a ideia de testar os conhecimentos que for
 sudo docker run --name FastFeet -e POSTGRES_PASSWORD=123456 -p 5432:5432 -d postgres
 ```
 
+**Iniciando o projeto**
+
+```jsx
+sudo docker start (nome do container)
+```
+
 ## 🚀Executando Projeto
 
 Para executar o nosso conatiner docker tem que está executando.
